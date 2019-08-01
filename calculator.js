@@ -1,7 +1,7 @@
 // this gives us the order of the buttons, which we can use to step through the buttons in various directions
 // since we know the layout, + 1 moves to the next item, -1 previous, +4 is one row down, -4 is one row up
 buttonOrder = ["#button7","#button8","#button9","#buttonDivide","#button4","#button5","#button6","#buttonMultiply","#button1","#button2","#button3","#buttonAdd","#button0","#buttonClear","#buttonEquals","#buttonSubtract"];
-
+rowOrder = ["#row1","#row1","#row1","#row1"];
 // add the selected class to an item. you can pass this any jquery selector, such as #id or .class
 // calling this will de-select anything currently selected
 function selectItem(name) {
@@ -95,10 +95,22 @@ $(document).keypress(function(event) {
 	if (event.key == "a") {
 		alert("You pressed the 'a' key!")	
 	} else if (event.key == "b") {
-		alert("You pressed the 'b' key!")
+		move();
 	}
 })
 
+function move(){
+	var myElements = $(".calculator_row");
+	console.log(myElements[0].className);
+	myElements.eq(0).addClass("border2");
+	console.log(myElements[1].className);
+
+	
+	
+}
+function draw(elements){
+	
+}
 
 /* calculator stuff below here */
 // for operations, we'll save + - / *
@@ -175,3 +187,5 @@ function evaluateExpression(first,op,second) {
 	$("#number_input").val(output.toString());
 	// deal with state elsewhere
 }
+
+
