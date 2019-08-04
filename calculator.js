@@ -2,6 +2,11 @@
 // since we know the layout, + 1 moves to the next item, -1 previous, +4 is one row down, -4 is one row up
 buttonOrder = ["#button7","#button8","#button9","#buttonDivide","#button4","#button5","#button6","#buttonMultiply","#button1","#button2","#button3","#buttonAdd","#button0","#buttonClear","#buttonEquals","#buttonSubtract"];
 rowOrder = ["#row1","#row1","#row1","#row1"];
+rowCount = 0;
+columnCount = 0;
+pressedCount = 0
+rowSelector = 2;
+colSelector = 2;
 // add the selected class to an item. you can pass this any jquery selector, such as #id or .class
 // calling this will de-select anything currently selected
 function selectItem(name) {
@@ -94,23 +99,57 @@ function clickSelectedItem() {
 $(document).keypress(function(event) {
 	if (event.key == "a") {
 		alert("You pressed the 'a' key!")	
-	} else if (event.key == "b") {
-		move();
+	} else if (event.keyCode == 32) {
+		switchControl();
 	}
-})
+});
+function switchControl(){
+	if (pressedCount == 0){
+		rowCount=0;
+		rowLoop = setInterval(rowLopper,1000);
+		pressedCount++;
+	}
+	else if (pressedCount == 1){
+		clearInterval(rowLoop);
+		clearInterval(rowSelector);
+		columnCount=0;
+		columnloop = setInterval(columnLooper,1000);
+		pressedCount++;
+		}
+	else{
+			
+		clearInterval(columnSelector);
+		clearInterval(columnloop);
+		$(".border3").click();
+		setTimeout(removeClass,1000)
+		pressedCount = 0;
+		}
+}
+function removeClass(){
+	$(".border2").removeClass("border2");
+	$(".border3").removeClass("border3");
+}
 
-function move(){
+function rowLopper(){
+	
 	var myElements = $(".calculator_row");
-	console.log(myElements[0].className);
-	myElements.eq(0).addClass("border2");
-	console.log(myElements[1].className);
+	rowSelector = (rowCount % 4)+1;
+	console.log(rowSelector);
+	previousRow = (rowSelector == 1)? 4:rowSelector-1;
+	myElements.eq(rowSelector).addClass("border2");
+	myElements.eq(previousRow).removeClass("border2");
+	rowCount++;
+}
+function columnLooper(){
+	var getRow = $(".border2").children();
+	columnSelector = columnCount % 4;
+	previosSelector = (columnSelector == 0)?3:columnSelector - 1;
+	
+	getRow.eq(previosSelector).removeClass("border3");
+	getRow.eq(columnSelector).addClass("border3");
+	columnCount++;
+}	
 
-	
-	
-}
-function draw(elements){
-	
-}
 
 /* calculator stuff below here */
 // for operations, we'll save + - / *

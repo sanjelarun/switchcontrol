@@ -27,3 +27,6 @@ label {
 .border2{
 	border: 3px solid blue;
 }
+.border3{
+	border: 8px solid green !important;
+} 
