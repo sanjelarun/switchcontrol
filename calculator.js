@@ -226,5 +226,3 @@ function evaluateExpression(first,op,second) {
 	$("#number_input").val(output.toString());
 	// deal with state elsewhere
 }
-
-
