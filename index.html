@@ -51,8 +51,32 @@
 					<li>Thick Green Box will loop around the rows. Press Space to select the required button.</li>
 					<li> Press Space to repeat the process</li>
 				</ul>
-				<li>Test results</li>
+				<li>Test </li>
+				<ul>
+					<li> To test One button switch, I designed 4 different test sets. Each set consisting of 5 different equations.</li>
+					<li> Each test set was set in different time interval i.e loop time of the selector box.</li>
+					<li> 4 different time set used were: 300ms, 700ms, 500ms, 1000ms</li>
+					<li>Total number of experiments =  4 * 5 = 20 </li>
+				</ul>
+				<li>Equations used</li>
+				<ul>
+					<li> 1234 + 7890 </li>
+					<li> ((2*5) + 10) - 2</li>
+					<li> ((1200/35) *101)</li>
+					<li>(5 *6) -29</li>
+					<li>((410 * 2)/6)-813</li>
+					<li>Parenthesis are not used in the calculator. It just shows order of operation to the user</li>
+				</ul>
+				<li> Results</li>
+				<ul>
+					<li>While using 300 and 500 ms interval time, the user was able to complete each test slightly faster. However, there were far many errors which resulted longer completion time as user had to repeat the whole process from start. </li>
+					<li>Using 700 ms, the user was able to complete the given task with significantly less errors and repetation. But, few errors still exists</li>
+					<li>Using 1000 ms, the user was ablr to complete all task with no errors at all. It took slightly more time to complete the task but there was no repeatation of the task so overall time was still faster than the previous cases.</li>
+				</ul>
+				<li>From above experiments, I selected 1000 ms to be interval time as it seems to be better and safer options in terms of error rate and overall completion time.</li>
 				<li>Anything else you have tried out</li>
+				<li> While doing the experiments, major errors led to repetation of the task because there was no backspace or single delete option available. So, I tired to implement deletion using double press of the key. However, I was not successful to implement it properly. As double press of key was consider as two single press.  
+				<LI><a href="https://docs.google.com/spreadsheets/d/1D9BJvX4BWvhUXwa4RDpEkyDXW6JndfBGzW7PIeO-p3I/edit?usp=sharing">Link to Test results data</a></LI>
 			</ul>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
